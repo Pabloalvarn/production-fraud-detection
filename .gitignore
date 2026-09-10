@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and secrets
+.venv/
+venv/
+.env
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Data and generated artifacts
+data/external/*
+data/interim/*
+data/processed/*
+!data/external/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+artifacts/*
+!artifacts/.gitkeep
+mlruns/
+*.joblib
+*.pkl
+
+# Generated reports (keep curated documentation and placeholders)
+reports/figures/*
+reports/metrics/*
+!reports/figures/.gitkeep
+!reports/metrics/.gitkeep
+
+# Notebooks
+.ipynb_checkpoints/
+
+
+# Local MLflow database
+mlflow.db
+
+
+# Curated final results
+!reports/figures/model_comparison.png
+!reports/figures/confusion_matrix.png
+!reports/figures/precision_recall.png
+!reports/figures/roc_curve.png
+!reports/figures/calibration.png
+
+!reports/metrics/test_metrics.json
+!reports/metrics/baseline_metrics.json
+!reports/metrics/permutation_importance.csv

@@ -1,0 +1,10 @@
+extends: base.yaml
+model:
+  name: logistic_regression
+  sampling: none
+  parameters:
+    C: 1.0
+    class_weight: balanced
+    max_iter: 1000
+    solver: lbfgs
+

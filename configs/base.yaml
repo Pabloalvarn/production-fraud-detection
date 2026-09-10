@@ -1,0 +1,46 @@
+project:
+  name: production-fraud-detection
+  random_state: 42
+
+paths:
+  raw_data: data/external/PS_20174392719_1491204439457_log.csv
+  validation_report: reports/metrics/data_validation.json
+  model_bundle: artifacts/model_bundle.joblib
+  metrics: reports/metrics/test_metrics.json
+  baseline_metrics: reports/metrics/baseline_metrics.json
+  predictions: reports/metrics/test_predictions.csv
+  figures: reports/figures
+
+data:
+  target: isFraud
+  time_column: step
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+  online_features:
+    - step
+    - type
+    - amount
+    - oldbalanceOrg
+    - oldbalanceDest
+  prohibited_features:
+    - isFraud
+    - isFlaggedFraud
+    - newbalanceOrig
+    - newbalanceDest
+    - nameOrig
+    - nameDest
+
+decision:
+  strategy: minimum_cost
+  false_positive_cost: 20.0
+  false_negative_fixed_cost: 500.0
+  review_cost: 5.0
+  review_capacity: 0.01
+  high_risk_threshold: 0.90
+
+training:
+  sample_rows: null
+  calibration_method: sigmoid
+  optimize_threshold: true
+  mlflow_experiment: fraud-detection

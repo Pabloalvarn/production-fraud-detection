@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_PATH: /app/artifacts/model_bundle.joblib
+      APP_ENV: production
+      LOG_LEVEL: INFO
+    volumes:
+      - ./artifacts:/app/artifacts:ro
+    restart: unless-stopped
+
