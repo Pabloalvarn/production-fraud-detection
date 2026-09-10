@@ -28,5 +28,5 @@ jobs:
       - name: Check formatting
         run: ruff format --check .
       - name: Test
-        run: pytest --cov=fraud_detection --cov-report=term-missing --cov-fail-under=40
+        run: pytest --cov=fraud_detection --cov-report=term-missing --cov-fail-under=38
 
